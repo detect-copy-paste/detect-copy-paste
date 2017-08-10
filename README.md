@@ -184,3 +184,8 @@ function intersectionB(arrayA, arrayB) {
 </duplication>
 </pmd-cpd>
 ```
+
+
+## Thanks
+
+Previously known as https://github.com/danielstjules/jsinspect
