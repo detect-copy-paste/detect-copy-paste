@@ -13,10 +13,10 @@
   ],
   "author": "Daniel St. Jules <danielst.jules@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/danielstjules/jsinspect",
+  "homepage": "https://github.com/detect-copy-paste/detect-copy-paste",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielstjules/jsinspect.git"
+    "url": "https://github.com/detect-copy-paste/detect-copy-paste.git"
   },
   "dependencies": {
     "babylon": "^6.17.4",
@@ -34,7 +34,7 @@
     "mocha": "^3.5.0"
   },
   "bin": {
-    "jsinspect": "./bin/jsinspect"
+    "detect-copy-paste": "./bin/detect-copy-paste"
   },
   "scripts": {
     "test": "mocha -R spec spec spec/reporters"

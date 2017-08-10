@@ -1,10 +1,8 @@
-![jsinspect](http://danielstjules.com/github/jsinspect-logo.png)
-
 Detect copy-pasted and structurally similar JavaScript code. Requires Node.js
 6.0+, and supports ES6, JSX as well as Flow. Note: the project has been mostly
 rewritten for the 0.10 release and saw several breaking changes.
 
-[![Build Status](https://travis-ci.org/danielstjules/jsinspect.svg?branch=master)](https://travis-ci.org/danielstjules/jsinspect)
+[![Build Status](https://travis-ci.org/detect-copy-paste/detect-copy-paste.svg?branch=master)](https://travis-ci.org/detect-copy-paste/detect-copy-paste)
 
 * [Overview](#overview)
 * [Installation](#installation)
@@ -24,7 +22,7 @@ support for the JS ecosystem: ES6, JSX, Flow, ignoring module declarations
 and imports, etc.
 
 And copy-pasted code is but one type of code duplication. Common boilerplate
-and repeated logic can be identified as well using jsinspect, since it
+and repeated logic can be identified as well using detect-copy-paste, since it
 doesn't operate directly on tokens - it uses the ASTs of the parsed code.
 
 You have the freedom to specify a threshold determining the smallest subset of
@@ -48,17 +46,17 @@ ignored.
 It can be installed via `npm` using:
 
 ``` bash
-npm install -g jsinspect
+npm install -g detect-copy-paste
 ```
 
 ## Usage
 
 ```
-Usage: jsinspect [options] <paths ...>
+Usage: detect-copy-paste [options] <paths ...>
 
 
 Detect copy-pasted and structurally similar JavaScript code
-Example use: jsinspect -I -L -t 20 --ignore "test" ./path/to/src
+Example use: detect-copy-paste -I -L -t 20 --ignore "test" ./path/to/src
 
 
 Options:
@@ -67,7 +65,7 @@ Options:
   -V, --version                      output the version number
   -t, --threshold <number>           number of nodes (default: 30)
   -m, --min-instances <number>       min instances for a match (default: 2)
-  -c, --config                       path to config file (default: .jsinspectrc)
+  -c, --config                       path to config file (default: .dcprc)
   -r, --reporter [default|json|pmd]  specify the reporter to use
   -I, --no-identifiers               do not match identifiers
   -L, --no-literals                  do not match literals
@@ -77,7 +75,7 @@ Options:
   --debug                            print debug information
 ```
 
-If a `.jsinspectrc` file is located in the project directory, its values will
+If a `.dcprc` file is located in the project directory, its values will
 be used in place of the defaults listed above. For example:
 
 ``` javascript
@@ -98,7 +96,7 @@ options, while running explicitly on the lib/src directories, and not the
 test/spec dir.
 
 ```
-jsinspect -t 50 --ignore "test" ./path/to/src
+detect-copy-paste -t 50 --ignore "test" ./path/to/src
 ```
 
 From there, feel free to try decreasing the threshold, ignoring identifiers
@@ -107,7 +105,7 @@ you to discover new areas of interest for refactoring or cleanup.
 
 ## Integration
 
-It's simple to run jsinspect on your library source as part of a build
+It's simple to run detect-copy-paste on your library source as part of a build
 process. It will exit with an error code of 0 when no matches are found,
 resulting in a passing step, and a positive error code corresponding to its
 failure. For example, with Travis CI, you could add the following entries
@@ -115,21 +113,21 @@ to your `.travis.yml`:
 
 ``` yaml
 before_script:
-  - "npm install -g jsinspect"
+  - "npm install -g detect-copy-paste"
 
 script:
-  - "jsinspect ./path/to/src"
+  - "detect-copy-paste ./path/to/src"
 ```
 
 Note that in the above example, we're using a threshold of 30 for detecting
 structurally similar code. A higher threshold may be appropriate as well.
 
-To have jsinspect run with each job, but not block or fail the build, you can
+To have detect-copy-paste run with each job, but not block or fail the build, you can
 use something like the following:
 
 ``` yaml
 script:
-  - "jsinspect ./path/to/src || true"
+  - "detect-copy-paste ./path/to/src || true"
 ```
 
 ## Reporters
@@ -166,8 +164,8 @@ code has changed between builds.
 <?xml version="1.0" encoding="utf-8"?>
 <pmd-cpd>
 <duplication lines="10" id="6ceb36d5891732db3835c4954d48d1b90368a475">
-<file path="/jsinspect/spec/fixtures/intersection.js" line="1"/>
-<file path="/jsinspect/spec/fixtures/intersection.js" line="7"/>
+<file path="/detect-copy-paste/spec/fixtures/intersection.js" line="1"/>
+<file path="/detect-copy-paste/spec/fixtures/intersection.js" line="7"/>
 <codefragment>
 spec/fixtures/intersection.js:1,5
 function intersectionA(array1, array2) {

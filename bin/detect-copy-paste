@@ -11,7 +11,7 @@ var reporters = require('../lib/reporters');
 
 var summary = `
   Detect copy-pasted and structurally similar JavaScript code
-  Example use: jsinspect -I -L -t 20 --ignore "test" ./path/to/src
+  Example use: detect-copy-paste -I -L -t 20 --ignore "test" ./path/to/src
 `;
 
 program
@@ -22,7 +22,7 @@ program
   .option('-m, --min-instances <number>',
     'min instances for a match (default: 2)', parseInt)
   .option('-c, --config [config]',
-    'path to config file [.jsinspectrc]', '.jsinspectrc')
+    'path to config file [.dcprc]', '.dcprc')
   .option('-r, --reporter [default|json|pmd]',
     'specify the reporter to use')
   .option('-I, --no-identifiers', 'do not match identifiers')
