@@ -1,5 +1,5 @@
 Detect copy-pasted and structurally similar JavaScript code. Requires Node.js
-6.0+, and supports ES6, JSX as well as Flow. Note: the project has been mostly
+6.0+, and supports ES2015+, JSX as well as Flow. Note: the project has been mostly
 rewritten for the 0.10 release and saw several breaking changes.
 
 [![Build Status](https://travis-ci.org/detect-copy-paste/detect-copy-paste.svg?branch=master)](https://travis-ci.org/detect-copy-paste/detect-copy-paste)
@@ -18,7 +18,7 @@ use-case for a helpful CLI tool.
 
 Existing solutions do exist for this purpose, but some struggle with code
 that has wildly varying identifiers or literals, and others have lackluster
-support for the JS ecosystem: ES6, JSX, Flow, ignoring module declarations
+support for the JS ecosystem: ES2015+, JSX, Flow, ignoring module declarations
 and imports, etc.
 
 And copy-pasted code is but one type of code duplication. Common boilerplate
