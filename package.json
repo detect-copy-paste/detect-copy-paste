@@ -23,6 +23,7 @@
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
     "filepaths": "^0.3.0",
+    "lodash": "^4.17.4",
     "stable": "^0.1.6",
     "strip-indent": "^2.0.0",
     "strip-json-comments": "^2.0.1"
